@@ -1,5 +1,7 @@
 import { bodyElement, themeSwitcher, Theme } from './variables';
 import onChangeThemeToggle from './on-change-theme-toggle';
+import menuTemplate from '../templates/menu-item.hbs';
+import menu from '../menu.json';
 
 themeSwitcher.addEventListener('change', onChangeThemeToggle);
 
@@ -12,3 +14,6 @@ if (themeSaved === null) {
     themeSwitcher.checked = true;
   }
 }
+
+const menuRef = document.querySelector('.js-menu');
+menuRef.insertAdjacentHTML('afterbegin', menuTemplate(menu));
